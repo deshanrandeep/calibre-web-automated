@@ -1,0 +1,99 @@
+#
+# docker-compose.yml: Calibre Web Automated Deployment for Synology NAS
+#
+# This Docker Compose configuration streamlines the setup and management of Calibre Web Automated,
+# an automated web-based eBook library management system that allows you to organize and access your eBooks,
+# metadata, and more. Designed for use on a Synology NAS, this setup ensures
+# optimal performance, security, and easy updates.
+#
+# Features:
+#   - Automated deployment of Calibre Web Automated via Docker Compose.
+#   - Persistent storage for configuration, book ingestion, and library data.
+#   - Configurable network settings for seamless integration.
+#   - Health checks to ensure the service remains available.
+#   - Secure setup with privilege restrictions and logging controls.
+#
+# For setup instructions, troubleshooting, and additional configurations, visit:
+# - Calibre Web Automated GitHub: https://github.com/crocodilestick/calibre-web-automated
+# - Marius Guide: https://mariushosting.com/how-to-install-calibre-web-automated-on-your-synology-nas
+#
+
+version: "2.20"
+
+#
+# Setup default properties for all or most containers
+#
+x-default-container: &default-container  # YAML anchor for default container
+  pull_policy: always                    # Ensure that the image is always pulled
+  restart: on-failure:5                  # Restart the container on failure up to 5 times
+  user: ${DEFAULT_UID}:${DEFAULT_GID}    # Set the container default user and group ID
+  security_opt:                          # Configure container security options
+    - no-new-privileges:true             # Disallow addition of additional privileges
+  logging:                               # Configure container logging options
+    driver: "json-file"                  # Use JSON file logging driver
+    options:                             # Add container logging options
+      max-size: ${LOG_MAX_SIZE}          # Maximum file size for logs files
+      max-file: ${LOG_MAX_FILE}          # Maximum number of log files to retain
+
+#
+# Setup default variables for all or most containers
+#
+x-default-environment: &default-environment  # YAML anchor for default environment
+    TZ: ${TZ}                                # Set the appropriate timezone
+    PUID: ${DEFAULT_PUID}                    # Default user id mapping for containers
+    PGID: ${DEFAULT_PGID}                    # Default group id mapping for containers
+
+#
+# Standard healthcheck timing settings
+#
+x-default-healthcheck-settings: &default-healthcheck-settings  # YAML anchor for healthcheck settings
+  interval: ${DEFAULT_HEALTHCHECK_INTERVAL}                    # Run the check at this interval
+  timeout: ${DEFAULT_HEALTHCHECK_TIMEOUT}                      # Fail if it exceeds this duration
+  start_period: ${DEFAULT_HEALTHCHECK_START_PERIOD}            # Grace period before checks start
+  retries: 5                                                   # Mark as unhealthy after 5 failures
+
+#
+# Define the services section
+#
+services:
+  #
+  # Define the 'calibre-web-automated' service
+  #
+  calibre-web-automated:
+    # Docker image and container information
+    <<: *default-container                                  # Pull in the default container information
+    image: crocodilestick/calibre-web-automated:${CWA_TAG}  # Use the specified tag
+    container_name: calibre-web-automated-${CWA_TAG}        # Container name for identification
+    hostname: calibre-web-automated                         # Set the container hostname
+
+    # Command used to check container health
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 8083 || exit 1"]  # Check if port 8083 is open
+      <<: *default-healthcheck-settings                      # Pull in default healthcheck settings
+
+    # Define the container environment
+    environment:
+      <<: *default-environment  # Pull in the default environment information
+
+    # Define the host and container ports
+    ports:
+      - ${CWA_PORT}:8083  # Calibre Web Automated web UI port
+
+    # Mount host directories into the container
+    volumes:
+      - ${CWA_CONFIG_PATH}:/config:rw             # Mount configuration directory
+      - ${CWA_INGEST_PATH}:/cwa-book-ingest:rw    # Mount ingest directory
+      - ${CWA_LIBRARY_PATH}:/calibre-library:rw   # Mount Calibre library directory
+
+#
+# Define the networks section
+#
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME}  # Use the name of the compose project
+    ipam:                          # IP Address Management
+      driver: default              # Use the default driver
+      config:
+        - subnet: ${COMPOSE_NETWORK_SUBNET}      # Subnet in CIDR format
+          ip_range: ${COMPOSE_NETWORK_IP_RANGE}  # Range of IPs to allocate
+          gateway: ${COMPOSE_NETWORK_GATEWAY}    # Gateway for the network
