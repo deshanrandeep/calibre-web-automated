@@ -14,7 +14,7 @@
 
 <hr />
 
-# Calibre Web Automated 📚🧙‍♂️
+# Calibre Web Automated 📚👒
 
 It is a truth universally acknowledged, that a bibliophile in possession of a vast collection of ebooks, must be in want of an elegant method of organization. Thus, dear reader, we present to you **Calibre Web Automated**—a Docker Compose deployment most genteel and efficient, suitable for even the most refined Synology parlours.
 
@@ -30,7 +30,7 @@ Peruse the Docker Compose manuscript here:
 
 Our profound gratitude to the ever-illuminating [Lixandru Marius Bogdan](https://github.com/mariushosting) 🔮📖, whose treatise—[this guide](https://mariushosting.com/how-to-install-calibre-web-automated-on-your-synology-nas)—served as our lantern in the darkened stacks.
 
-## The Contents of Our Library 🛠️
+## The Contents of Our Library 🪞
 
 A modest index of the marvels you shall summon:
 
@@ -43,7 +43,7 @@ A modest index of the marvels you shall summon:
 
 ## Commencement of Deployment 🚀
 
-### 🛠️ Acquiring the Repository
+### 📋 Acquiring the Repository
 
 To initiate this genteel apparatus, one must first acquire the repository, as one might retrieve a cherished tome from a locked cabinet:
 
@@ -54,7 +54,7 @@ git clone https://github.com/scottgigawatt/calibre-web-automated.git /volume1/do
 > [!NOTE]
 > 🧾 Be thou upon Synology 📦, macOS 🍎, Linux 🐧, or even a particularly enchanted slab of stone—adjust thy path as wisdom dictates.
 
-### 🧪 Concocting the Proper Environment
+### ✒️ Concocting the Proper Environment
 
 No alchemical solution succeeds without its precise reagents. Begin, if you please, by copying the sample `.env` manuscript:
 
@@ -77,7 +77,7 @@ vim .env
 ### 📚 A Note of Caution and Preparation
 
 > [!IMPORTANT]
-> 🧙 The wise bibliophile studies the preface. Do not skip the setup guide, lest your library descend into chaos.
+> 👒 The wise bibliophile studies the preface. Do not skip the setup guide, lest your library descend into chaos.
 
 Consult the [Setup Guide](./SETUP.md), which details rites and rituals for Synology deployment, container conjuring, and the warding of firewalls.
 
@@ -85,12 +85,12 @@ Of particular interest:
 
 - 🌐📖 [Docker Networking](./SETUP.md#configuring-docker-networking-)
 - 🧱⚙️ [Synology Provisions](./SETUP.md#synology-configuration-)
-  - 🔥🛡️ [Firewall Incantations](./SETUP.md#updating-firewall-settings-)
+  - 🔥🏰 [Firewall Incantations](./SETUP.md#updating-firewall-settings-)
   - 📦🚀 [Container Manager Rituals](./SETUP.md#deploying-with-container-manager-)
 
 To disregard this guidance would be most imprudent.
 
-## Suitable Reading Rooms 🧵
+## Suitable Reading Rooms 🪡
 
 This composition has been favourably tested upon the DS1522+ and DS916+ (DSM 7.2), but it performs admirably upon any host capable of sustaining Docker's arcane machinery.
 
