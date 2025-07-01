@@ -26,9 +26,6 @@ version: "2.20"
 x-default-container: &default-container  # YAML anchor for default container
   pull_policy: always                    # Ensure that the image is always pulled
   restart: on-failure:5                  # Restart the container on failure up to 5 times
-  user: ${DEFAULT_UID}:${DEFAULT_GID}    # Set the container default user and group ID
-  security_opt:                          # Configure container security options
-    - no-new-privileges:true             # Disallow addition of additional privileges
   logging:                               # Configure container logging options
     driver: "json-file"                  # Use JSON file logging driver
     options:                             # Add container logging options
